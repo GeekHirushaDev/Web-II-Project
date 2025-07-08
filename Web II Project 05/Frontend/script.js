@@ -44,3 +44,41 @@ function createNewAccount() {
 
   ajax.send(userDataJSON);
 }
+
+function login() {
+  // Get the values from the input fields
+  const mobile = document.getElementById("mobile").value;
+  const password = document.getElementById("password").value;
+
+  // Validate the inputs
+  // console.log(mobile);
+  // console.log(password);
+
+  // JS Object to hold the data
+  const userData = {
+    mobile: mobile,
+    password: password,
+  };
+
+  // Convert the object to a JSON string
+  const userDataJSON = JSON.stringify(userData);
+
+  // Log the JSON string to the console
+  console.log(userDataJSON);
+
+  // add ajax call here to send the data to the server
+  const ajax = new XMLHttpRequest();
+  ajax.open("POST", "http://localhost:8080/WEB_II_PROJECT_05/Login", true);
+
+  ajax.onreadystatechange = function () {
+    if (ajax.readyState === 4) {
+      if (ajax.status === 200) {
+        alert("Login successful!");
+      } else {
+        alert("Error logging in: " + ajax.status + " " + ajax.statusText);
+      }
+    }
+  };
+
+  ajax.send(userDataJSON);
+}
