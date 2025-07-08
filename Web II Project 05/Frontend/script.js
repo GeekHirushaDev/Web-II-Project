@@ -73,7 +73,7 @@ function login() {
   ajax.onreadystatechange = function () {
     if (ajax.readyState === 4) {
       if (ajax.status === 200) {
-        alert("Login successful!");
+        alert(ajax.responseText);
       } else {
         alert("Error logging in: " + ajax.status + " " + ajax.statusText);
       }
