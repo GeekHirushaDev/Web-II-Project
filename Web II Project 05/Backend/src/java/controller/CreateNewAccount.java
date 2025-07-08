@@ -5,6 +5,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -26,7 +27,8 @@ public class CreateNewAccount extends HttpServlet {
 
 //        Json -> Java
         Gson gson = new Gson();
-        User user = gson.fromJson(request.getReader(), User.class);
+//        User user = gson.fromJson(request.getReader(), User.class);
+        JsonObject user = gson.fromJson(request.getReader(), JsonObject.class);
 
         // System.out.println(user.getMobile());
         // System.out.println(user.getFirstname());
@@ -40,7 +42,7 @@ public class CreateNewAccount extends HttpServlet {
             Statement s = c.createStatement();
             s.executeUpdate("INSERT INTO "
                     + "users (mobile, firstname, lastname, password, country) "
-                    + "VALUES ('" + user.getMobile() + "', '" + user.getFirstname() + "', '" + user.getLastname() + "', '" + user.getPassword() + "', '" + user.getCountry() + "')");
+                    + "VALUES ('" + user.get("mobile").getAsString() + "', '" + user.get("firstname").getAsString() + "', '" + user.get("lastname").getAsString() + "', '" + user.get("password").getAsString() + "', '" + user.get("country").getAsString() + "')");
             response.getWriter().write("Success");
 
         } catch (Exception e) {
