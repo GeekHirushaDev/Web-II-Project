@@ -38,15 +38,15 @@ public class CreateNewAccount extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection c = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/web_5?useSSL=false", "root", "password");
             Statement s = c.createStatement();
-            s.executeUpdate("INSERT INTO users (mobile, firstname, lastname, password, country) VALUES ('" + user.getMobile() + "', '" + user.getFirstname() + "', '" + user.getLastname() + "', '" + user.getPassword() + "', '" + user.getCountry() + "')");
+            s.executeUpdate("INSERT INTO "
+                    + "users (mobile, firstname, lastname, password, country) "
+                    + "VALUES ('" + user.getMobile() + "', '" + user.getFirstname() + "', '" + user.getLastname() + "', '" + user.getPassword() + "', '" + user.getCountry() + "')");
             response.getWriter().write("Success");
 
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().write("Error: " + e.getMessage());
         }
-
-        response.getWriter().write("Hello!");
 
     }
 }
