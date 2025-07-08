@@ -44,7 +44,7 @@ This project is an analysis and implementation of a web application. It consists
 - `mysql-connector-j-8.4.0.jar`: For database connectivity.
 
 ## Authors
-- [Your Name]
+- GeekHirusha Dev
 
 ## License
 This project is licensed under the MIT License.
