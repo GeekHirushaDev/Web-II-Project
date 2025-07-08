@@ -4,34 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register User</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <label for="mobile">Mobile:</label>
-        <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number">
-
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name">
-
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name">
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password">
-
-        <label for="country">Country:</label>
-        <select id="country" name="country">
-            <option value="">Select your country</option>
-            <option value="usa">USA</option>
-            <option value="canada">Canada</option>
-            <option value="uk">UK</option>
-            <option value="india">India</option>
-            <option value="australia">Australia</option>
-        </select>
-
-        <button id="createAccountButton" onclick="createNewAccount()">Create New Account</button>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg mt-10 max-w-md sm:p-4 sm:mt-4">
+        <h1 class="text-2xl font-bold mb-6 text-center sm:text-xl">Register User</h1>
+        <div class="space-y-4">
+            <div>
+                <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile:</label>
+                <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm sm:px-2 sm:py-1">
+            </div>
+            <div>
+                <label for="firstname" class="block text-sm font-medium text-gray-700">First Name:</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm sm:px-2 sm:py-1">
+            </div>
+            <div>
+                <label for="lastname" class="block text-sm font-medium text-gray-700">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm sm:px-2 sm:py-1">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm sm:px-2 sm:py-1">
+            </div>
+            <div>
+                <label for="country" class="block text-sm font-medium text-gray-700">Country:</label>
+                <select id="country" name="country" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm sm:px-2 sm:py-1">
+                    <option value="">Select your country</option>
+                    <option value="usa">USA</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">UK</option>
+                    <option value="india">India</option>
+                    <option value="australia">Australia</option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button id="createAccountButton" onclick="createNewAccount()" class="px-4 py-2 bg-indigo-500 text-white font-medium rounded-md shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:px-3 sm:py-1.5">Create New Account</button>
+            </div>
+        </div>
     </div>
+    <footer class="mt-6 text-center text-sm text-gray-600 sm:text-xs">
+        Designed and developed by GeekHirusha Dev
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
