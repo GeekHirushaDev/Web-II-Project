@@ -6,6 +6,9 @@ package controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import model.User;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -31,15 +34,23 @@ public class Login extends HttpServlet {
 
 //        Json -> Java
         Gson gson = new Gson();
-        JsonObject user = gson.fromJson(request.getReader(), JsonObject.class);
+        User user = gson.fromJson(request.getReader(), User.class);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection c = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/web_5?useSSL=false", "root", "password");
             Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM users WHERE mobile = '" + user.get("mobile").getAsString() + "' AND password = '" + user.get("password").getAsString() + "'");
+            ResultSet rs = s.executeQuery("SELECT * FROM users WHERE mobile = '" + user.getMobile() + "' && password = '" + user.getPassword() + "'");
             if (rs.next()) {
-                response.getWriter().print(rs.getString("firstname") + " logged in successfully");
+                User u = new User();
+                u.setFirstname(rs.getString("firstname"));
+                u.setLastname(rs.getString("lastname"));
+                u.setMobile(rs.getString("mobile"));
+                u.setCountry(rs.getString("country"));
+
+                request.getSession().setAttribute("user", u);
+                response.getWriter().write("Success");
+                response.setContentType("application/json");
             } else {
                 response.getWriter().write("Invalid mobile number or password");
             }

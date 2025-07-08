@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body onload="loadUsers()" class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg mt-10 max-w-4xl sm:p-4 sm:mt-4">
+        <h1 class="text-2xl font-bold mb-6 text-center sm:text-xl">All Users</h1>
+        <table class="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2">ID</th>
+                    <th class="border border-gray-300 px-4 py-2">Mobile</th>
+                    <th class="border border-gray-300 px-4 py-2">First Name</th>
+                    <th class="border border-gray-300 px-4 py-2">Last Name</th>
+                    <th class="border border-gray-300 px-4 py-2">Country</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <footer class="mt-6 text-center text-sm text-gray-600 sm:text-xs">
+        Designed and developed by GeekHirusha Dev
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

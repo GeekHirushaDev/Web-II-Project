@@ -82,3 +82,35 @@ function login() {
 
   ajax.send(userDataJSON);
 }
+
+function loadUsers() {
+  const tbody = document.getElementById("userTableBody");
+
+  let count =1;
+
+  // add ajax call here to get the data from the server
+  const ajax = new XMLHttpRequest();
+
+  ajax.onreadystatechange = function () {
+    if (ajax.readyState === 4) {
+      if (ajax.status === 200) {
+        const users = JSON.parse(ajax.responseText);
+        users.forEach((u) => {
+          tbody.innerHTML+= `<tr>
+            <td class="border px-4 py-2">${count++}</td>
+            <td class="border px-4 py-2">${u.mobile}</td>
+            <td class="border px-4 py-2">${u.firstname}</td>
+            <td class="border px-4 py-2">${u.lastname}</td>
+            <td class="border px-4 py-2">${u.country}</td>
+          </tr>`;
+          count++;
+        });
+      } else {
+        alert("Error loading users: " + ajax.status + " " + ajax.statusText);
+      }
+    }
+  };
+  
+  ajax.open("GET", "http://localhost:8080/WEB_II_PROJECT_05/GetAllUsers", true);
+  ajax.send();
+}
