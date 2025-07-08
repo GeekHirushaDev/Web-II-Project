@@ -35,12 +35,12 @@ function createNewAccount() {
   ajax.onreadystatechange = function () {
     if (ajax.readyState === 4) {
       if (ajax.status === 200) {
-        console.log("Account created successfully:", ajax.responseText);
+        alert("Account created successfully!");
       } else {
-        console.error("Error creating account:", ajax.status, ajax.statusText);
+        alert("Error creating account: " + ajax.status + " " + ajax.statusText);
       }
     }
   };
 
-  ajax.send();
+  ajax.send(userDataJSON);
 }
