@@ -36,7 +36,10 @@ public class DataAdvancedSearch extends HttpServlet {
         Criteria c = session.createCriteria(Product.class);
         
         // Restrictions
-        Criterion crt1 = Restrictions.eq("qty", 40);
+//        Criterion crt1 = Restrictions.eq("qty", 40);
+//        c.add(crt1);
+        
+        Criterion crt1 = Restrictions.lt("qty", 20);
         c.add(crt1);
         
         List<Product> productList = c.list();

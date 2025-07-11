@@ -1,50 +1,64 @@
-# Web-II-Project
+# Web II Projects
 
-## Project Overview
-This project is an analysis and implementation of a web application. It consists of two main components:
+## Overview
+This repository contains two distinct projects:
 
-1. **Backend**: Built using Java, it includes controllers, models, and database connectivity.
-2. **Frontend**: Developed with HTML, CSS, and JavaScript for user interaction.
+1. **Hibernate Project**: A Java-based web application utilizing Hibernate ORM for database operations.
+2. **Project 5**: A project with both backend and frontend components, designed to demonstrate a complete web application workflow.
 
-## Folder Structure
-
-### Backend
-- `build.xml`: Build configuration file.
-- `src/`: Contains Java source files.
-  - `controller/`: Includes controllers like `CreateNewAccount.java`.
-  - `model/`: Includes models like `User.java`.
-- `web/`: Contains web-related files like `index.html` and configuration files.
-- `lib/`: Includes external libraries like `gson` and `mysql-connector`.
-
-### Frontend
-- `index.html`: Main HTML file.
-- `script.js`: JavaScript file for frontend logic.
-- `style.css`: CSS file for styling.
-
-## Database
-- `Database.sql`: SQL file for database schema and initialization.
-
-## How to Run
-
-### Backend
-1. Ensure you have Java installed.
-2. Use `build.xml` to compile and deploy the backend.
-3. Place the required libraries (`gson` and `mysql-connector`) in the `lib/` folder.
-
-### Frontend
-1. Open `Frontend/index.html` in a browser.
+---
 
 ## Features
-- User account creation.
-- Database integration.
-- Dynamic frontend.
 
-## Libraries Used
-- `gson-2.10.1.jar`: For JSON parsing.
-- `mysql-connector-j-8.4.0.jar`: For database connectivity.
+### Hibernate Project
+- Implements Hibernate ORM for database interaction.
+- Includes CRUD operations for entities such as `Brand`, `Product`, and `Users`.
+- Advanced search and update functionalities.
 
-## Authors
-- GeekHirusha Dev
+### Project 5
+- Backend:
+  - Java-based backend with database connectivity.
+  - Includes essential configurations and libraries for smooth operation.
+- Frontend:
+  - HTML and JavaScript-based user interface.
+  - Pages include `index.html`, `login.html`, and `all-users.html`.
 
-## License
-This project is licensed under the MIT License.
+---
+
+## Technologies Used
+
+### Hibernate Project
+- Java
+- Hibernate ORM
+- MySQL
+- Libraries:
+  - Gson
+  - SLF4J
+  - Ehcache
+
+### Project 5
+- Java (Backend)
+- MySQL
+- HTML, CSS, JavaScript (Frontend)
+
+---
+
+## Setup Instructions
+
+### Hibernate Project
+1. Clone the repository.
+2. Configure the database connection in `hibernate.cfg.xml`.
+3. Build the project using the provided `build.xml`.
+4. Deploy the application to a compatible server (e.g., GlassFish).
+
+### Project 5
+1. Clone the repository.
+2. Navigate to the `Backend` folder and configure the database connection.
+3. Build the backend using the provided `build.xml`.
+4. Deploy the backend to a server.
+5. Serve the frontend files from the `Frontend` folder.
+
+---
+
+## Author
+This projects is developed and maintained by **GeekHirusha Dev**.
