@@ -7,7 +7,6 @@ package controller;
 import entity.Product;
 import hibernate.HibernateUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +17,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -35,12 +35,21 @@ public class DataAdvancedSearch extends HttpServlet {
         
         Criteria c = session.createCriteria(Product.class);
         
-        // Restrictions
-//        Criterion crt1 = Restrictions.eq("qty", 40);
-//        c.add(crt1);
+        /** Restrictions
+            * Restrictions are used to filter results based on specific criteria.
+            * They can be used to create complex queries with conditions like equal, not equal, greater than, less than, etc.
+         */
         
-        Criterion crt1 = Restrictions.lt("qty", 20);
-        c.add(crt1);
+        // 1st way: equal
+        // Criterion crt1 = Restrictions.eq("qty", 40);
+        // c.add(crt1);
+        
+        // 2nd way: less than
+        // Criterion crt2 = Restrictions.lt("qty", 20);
+        // c.add(crt2);
+        
+        Criterion crt3 = Restrictions.ilike("name", "a", MatchMode.ANYWHERE);
+        c.add(crt3);
         
         List<Product> productList = c.list();
         for (Product product : productList) {
