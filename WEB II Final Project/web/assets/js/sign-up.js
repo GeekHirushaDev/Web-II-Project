@@ -27,4 +27,17 @@ async function signUp() {
             }
     );
 
+    if (response.ok) {
+        const responseJSON = await response.json();
+
+        if (responseJSON.status) {
+            window.location = "verify-account.html";
+        } else {
+            console.log(responseJSON.message);
+        }
+
+    } else {
+
+    }
+
 }

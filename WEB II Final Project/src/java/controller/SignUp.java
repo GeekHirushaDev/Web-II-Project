@@ -37,34 +37,49 @@ public class SignUp extends HttpServlet {
         final String email = user.get("email").getAsString();
         String password = user.get("password").getAsString();
 
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session session = sf.openSession();
+        JsonObject responseObject = new JsonObject();
+        responseObject.addProperty("status", false);
 
-        User u = new User();
-        u.setFirst_name(firstName);
-        u.setLast_name(lastName);
-        u.setEmail(email);
-        u.setPassword(password);
-        
-        //generate verification code
-        final String verificationCode = Util.generateCode();
-        u.setVerification(verificationCode);
-        //generate verification code
-        
-        u.setCreated_at(new Date());
+        if (firstName.isEmpty()) {
+            responseObject.addProperty("message", "First Name can not be empty!");
+        } else if (lastName.isEmpty()) {
+            responseObject.addProperty("message", "last Name can not be empty!");
+        }else if (email.isEmpty()) {
+            responseObject.addProperty("message", "Email can not be empty!");
+        }
 
-        session.save(u);
-        session.beginTransaction().commit();
-        // hibernate save
+        String responseText = gson.toJson(responseObject);
+        response.setContentType("application/json");
+        response.getWriter().write(responseText);
 
-        //send email
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Mail.sendMail(email, "SmartTrade Verification", "<h1>" + verificationCode + "</h1>");
-            }
-        }).start();
-        // send email
+//        SessionFactory sf = HibernateUtil.getSessionFactory();
+//        Session session = sf.openSession();
+//
+//        User u = new User();
+//        u.setFirst_name(firstName);
+//        u.setLast_name(lastName);
+//        u.setEmail(email);
+//        u.setPassword(password);
+//        
+//        //generate verification code
+//        final String verificationCode = Util.generateCode();
+//        u.setVerification(verificationCode);
+//        //generate verification code
+//        
+//        u.setCreated_at(new Date());
+//
+//        session.save(u);
+//        session.beginTransaction().commit();
+//        // hibernate save
+//
+//        //send email
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Mail.sendMail(email, "SmartTrade Verification", "<h1>" + verificationCode + "</h1>");
+//            }
+//        }).start();
+//        // send email
     }
 
 }
