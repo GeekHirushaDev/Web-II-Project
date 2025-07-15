@@ -37,7 +37,7 @@ public class User implements Serializable {
     @Column(name = "verification", length = 10, nullable = false)
     private String verification;
     
-    @Column(name = "verification", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private Date created_at;
 
     public User() {
