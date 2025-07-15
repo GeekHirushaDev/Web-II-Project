@@ -15,6 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Mail;
+import model.Util;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -29,25 +31,40 @@ public class SignUp extends HttpServlet {
     protected void doPost(HttpServletRequest requset, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
         JsonObject user = gson.fromJson(requset.getReader(), JsonObject.class);
-        
+
         String firstName = user.get("firstName").getAsString();
         String lastName = user.get("lastName").getAsString();
-        String email = user.get("email").getAsString();
+        final String email = user.get("email").getAsString();
         String password = user.get("password").getAsString();
 
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session session = sf.openSession();
-        
+
         User u = new User();
         u.setFirst_name(firstName);
         u.setLast_name(lastName);
         u.setEmail(email);
         u.setPassword(password);
-        u.setVerification("1234");
-        u.setCreated_at(new Date());
         
+        //generate verification code
+        final String verificationCode = Util.generateCode();
+        u.setVerification(verificationCode);
+        //generate verification code
+        
+        u.setCreated_at(new Date());
+
         session.save(u);
         session.beginTransaction().commit();
+        // hibernate save
+
+        //send email
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Mail.sendMail(email, "SmartTrade Verification", "<h1>" + verificationCode + "</h1>");
+            }
+        }).start();
+        // send email
     }
 
 }
