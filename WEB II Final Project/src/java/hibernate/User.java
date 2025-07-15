@@ -4,6 +4,7 @@
  */
 package hibernate;
 
+import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -22,11 +23,14 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    //3rd Method
     @Column(name = "first_name", length = 45, nullable = false)
-    private String firstName;
+    @SerializedName(value = "firstName")
+    private String first_name;
 
     @Column(name = "last_name", length = 45, nullable = false)
-    private String lastName;
+    @SerializedName(value = "lastName")
+    private String last_name;
 
     @Column(name = "email", length = 100, nullable = false)
     private String email;
@@ -53,19 +57,19 @@ public class User implements Serializable {
     }
 
     public String getFirst_name() {
-        return firstName;
+        return first_name;
     }
 
-    public void setFirst_name(String firstName) {
-        firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
     public String getLast_name() {
-        return lastName;
+        return last_name;
     }
 
     public void setLast_name(String last_name) {
-        this.lastName = last_name;
+        this.last_name = last_name;
     }
 
     public String getEmail() {

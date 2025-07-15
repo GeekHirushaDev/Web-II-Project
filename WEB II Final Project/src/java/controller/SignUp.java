@@ -20,7 +20,7 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest requset, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
-        //2nd method
+        //3rd method
         User user = gson.fromJson(requset.getReader(), User.class);
         
         String firstName = user.getFirst_name();
