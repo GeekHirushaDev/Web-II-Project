@@ -33,11 +33,11 @@ async function signUp() {
         if (responseJSON.status) {
             window.location = "verify-account.html";
         } else {
-            console.log(responseJSON.message);
+            document.getElementById("message").innerHTML = responseJSON.message;
         }
 
     } else {
-
+        document.getElementById("message").innerHTML = "Registration failed. Please try again.";
     }
 
 }

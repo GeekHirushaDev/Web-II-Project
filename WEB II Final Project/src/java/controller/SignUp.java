@@ -91,11 +91,17 @@ public class SignUp extends HttpServlet {
                     }
                 }).start();
                 // send email
+                
+                responseObject.addProperty("status", true);
+                responseObject.addProperty("message","Registration successful! Please check your email for the verification code.");
             }
+            session.close();
         }
-//        String responseText = gson.toJson(responseObject);
-//        response.setContentType("application/json");
-//        response.getWriter().write(responseText);
+        
+        String responseText = gson.toJson(responseObject);
+        response.setContentType("application/json");
+        response.getWriter().write(responseText);
+        
     }
 
 }
