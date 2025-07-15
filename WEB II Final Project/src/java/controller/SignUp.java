@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import hibernate.User;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,12 +20,13 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest requset, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
-        JsonObject user = gson.fromJson(requset.getReader(), JsonObject.class);
+        //2nd method
+        User user = gson.fromJson(requset.getReader(), User.class);
         
-        String firstName = user.get("firstName").getAsString();
-        String lastName = user.get("lastName").getAsString();
-        String email = user.get("email").getAsString();
-        String password = user.get("password").getAsString();
+        String firstName = user.getFirst_name();
+        String lastName = user.getLast_name();
+        String email = user.getEmail();
+        String password = user.getPassword();
         
         System.out.println(firstName);
         System.out.println(lastName);

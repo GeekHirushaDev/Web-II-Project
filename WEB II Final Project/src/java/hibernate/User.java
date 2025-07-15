@@ -23,10 +23,10 @@ public class User implements Serializable {
     private int id;
 
     @Column(name = "first_name", length = 45, nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(name = "last_name", length = 45, nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Column(name = "email", length = 100, nullable = false)
     private String email;
@@ -53,19 +53,19 @@ public class User implements Serializable {
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirst_name(String firstName) {
+        firstName = firstName;
     }
 
     public String getLast_name() {
-        return last_name;
+        return lastName;
     }
 
     public void setLast_name(String last_name) {
-        this.last_name = last_name;
+        this.lastName = last_name;
     }
 
     public String getEmail() {
