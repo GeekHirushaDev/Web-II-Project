@@ -87,32 +87,32 @@ public class SignIn extends HttpServlet {
 
     }
 
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        JsonObject responseObject = new JsonObject();
-////        responseObject.addProperty("status", false);
-//        
-//        if (request.getSession().getAttribute("user") != null) {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        JsonObject responseObject = new JsonObject();
+//        responseObject.addProperty("status", false);
+        
+        if (request.getSession().getAttribute("user") != null) {
+            
 //            
-////            
-////            SessionFactory sf = HibernateUtil.getSessionFactory();
-////            Session s = sf.openSession();
-////
-////            Criteria c = s.createCriteria(User.class);
-////            c.add(Restrictions.eq("email", c));
-////            
-////            if (!c.list().isEmpty()) {
-////                
-////            }
-//            responseObject.addProperty("message", "1");
-//        } else {
-//            responseObject.addProperty("message", "2");
-//        }
-//        
-//        Gson gson = new Gson();
-//        String toJson = gson.toJson(responseObject);
-//        response.setContentType("application/json");
-//        response.getWriter().write(toJson);
-//    }
+//            SessionFactory sf = HibernateUtil.getSessionFactory();
+//            Session s = sf.openSession();
+//
+//            Criteria c = s.createCriteria(User.class);
+//            c.add(Restrictions.eq("email", c));
+//            
+//            if (!c.list().isEmpty()) {
+//                
+//            }
+            responseObject.addProperty("message", "1");
+        } else {
+            responseObject.addProperty("message", "2");
+        }
+        
+        Gson gson = new Gson();
+        String toJson = gson.toJson(responseObject);
+        response.setContentType("application/json");
+        response.getWriter().write(toJson);
+    }
     
 }

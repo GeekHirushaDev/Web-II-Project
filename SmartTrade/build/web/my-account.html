@@ -25,13 +25,13 @@
         <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
         <link rel="stylesheet" href="assets/css/vendor/base.css">
         <link rel="stylesheet" href="assets/css/style.min.css">
-        
+
         <link rel="stylesheet" href="assets/css/notification.css">
 
     </head>
 
 
-    <body class="sticky-header" onload="getUserData();">
+    <body class="sticky-header" onload="loadData();">
         <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
@@ -153,7 +153,7 @@
                                         <span class="title">QUICKLINKS</span>
                                         <ul>
                                             <li>
-                                                <a href="#">My Account</a>
+                                                <a href="my-account.html">My Account</a>
                                             </li>
                                             <li>
                                                 <a href="#">Support</a>
@@ -163,9 +163,9 @@
                                             </li>
                                         </ul>
                                         <div class="login-btn">
-                                            <a href="#" class="axil-btn btn-bg-primary">Login</a>
+                                            <a href="sign-in.html" class="axil-btn btn-bg-primary">Login</a>
                                         </div>
-                                        <div class="reg-footer text-center">No account yet? <a href="#" class="btn-link">REGISTER HERE.</a></div>
+                                        <div class="reg-footer text-center">No account yet? <a href="sign-up.html" class="btn-link">REGISTER HERE.</a></div>
                                     </div>
                                 </li>
                                 <li class="axil-mobile-toggle">
@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h5 class="title mb-0" id="username">Hello Name</h5>
-                                    <span class="joining-date" id="since"></span>
+                                    <span id="since" class="joining-date">Smart Trade Member Since Sep 2024</span>
                                 </div>
                             </div>
                         </div>
@@ -236,9 +236,9 @@
 
                                     <div class="tab-pane fade" id="nav-add-product" role="tabpanel">
                                         <div class="axil-dashboard-overview">
-                                            
+
                                             <div class="welcome-text">Create New Product</div>
-                                            
+
                                             <form class="account-details-form">
                                                 <div class="row">
                                                     <div class="col-lg-6">
@@ -291,7 +291,7 @@
                                                         <div class="form-group">
                                                             <label>Condition</label>
                                                             <select>
-                                                               <option value="0">Select</option>
+                                                                <option value="0">Select</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -414,7 +414,7 @@
                                     <div class="tab-pane fade show active" id="nav-account" role="tabpanel">
                                         <div class="col-lg-9">
                                             <div class="axil-dashboard-account">
-                                                <form class="account-details-form">
+<!--                                                <form class="account-details-form">-->
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="form-group">
@@ -428,12 +428,38 @@
                                                                 <input type="text" class="form-control" value="" id="lastName">
                                                             </div>
                                                         </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>Address Line 1</label>
+                                                                <input type="text" class="form-control" value="" id="lineOne">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>Address Line 2</label>
+                                                                <input type="text" class="form-control" value="" id="lineTwo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>Postal Code</label>
+                                                                <input type="text" class="form-control" value="" id="postalCode">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>City</label>
+                                                                <select id="citySelect">
+                                                                    <option value="0">Select</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
 
                                                         <div class="col-12">
                                                             <h5 class="title">Password Change</h5>
                                                             <div class="form-group">
                                                                 <label>Current Password</label>
-                                                                <input type="password" class="form-control" value="" id="currentPassword">
+                                                                <input readonly type="password" class="form-control" value="" id="currentPassword">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>New Password</label>
@@ -441,14 +467,14 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Confirm New Password</label>
-                                                                <input type="password" class="form-control">
+                                                                <input type="password" class="form-control" id="confirmPassword">
                                                             </div>
                                                             <div class="form-group mb--0 d-grid">
-                                                                <input type="submit" class="axil-btn" value="Save Changes">
+                                                                <input type="submit" class="axil-btn" value="Save Changes" onclick="saveChanges();">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>
+<!--                                                </form>-->
                                             </div>
                                         </div>
                                     </div>

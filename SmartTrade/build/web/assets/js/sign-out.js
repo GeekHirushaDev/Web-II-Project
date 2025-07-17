@@ -1,14 +1,17 @@
 async function signOut(){
     const response = await fetch("SignOut");
     
-    if(response.ok){
+    if (response.ok){
         const json = await response.json();
-        if(json.status){
+        
+        if (json.status) {
             window.location = "sign-in.html";
-        }else{
+        } else {
             window.location.reload();
         }
     }else{
-        console.log("Logout failed!");
+        console.log("Logout Failed!");
     }
 }
+
+
