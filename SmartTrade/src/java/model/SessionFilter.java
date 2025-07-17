@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "SessionFilter", urlPatterns = {"/sign-up.html","/sign-in.html","/verify-account.html"})
-public class SessionFilter implements Filter{
+@WebFilter(filterName = "SessionFilter", urlPatterns = {"/sign-up.html", "/sign-in.html", "/verify-account.html"})
+public class SessionFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,11 +25,15 @@ public class SessionFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        
+
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession s = req.getSession(false);
-        
+
+        // res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        //        res.setHeader("Pragma", "no-cache");
+        //        res.setHeader("Expires", "0");
+
         if (s != null && s.getAttribute("user") != null) {
             res.sendRedirect("index.html");
         } else {
@@ -40,5 +44,5 @@ public class SessionFilter implements Filter{
     @Override
     public void destroy() {
     }
-    
+
 }
