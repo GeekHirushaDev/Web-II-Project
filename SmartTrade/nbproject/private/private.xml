@@ -3,16 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/model/Util.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/model/SignInCheckFilter.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/sign-out.js</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/css/style.min.css</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/hibernate/HibernateUtil.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/index.html</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/main.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/sign-up.html</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/controller/VerifyAccount.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/controller/SignOut.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/my-account.html</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/model/Mail.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/sign-in.html</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/model/Util.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/controller/MyAccount.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/sign-up.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/notification.js</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/model/SessionFilter.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/controller/SignUp.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/controller/VerifyAccount.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/my-account.js</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/verify-account.html</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/model/Mail.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/sign-in.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/src/java/controller/SignIn.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/SmartTrade/web/assets/js/verify-account.js</file>
         </group>
     </open-files>
