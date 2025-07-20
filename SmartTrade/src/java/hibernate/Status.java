@@ -16,18 +16,20 @@ import javax.persistence.Table;
  *
  * @author Workplace
  */
+
 @Entity
-@Table(name="city")
-public class City implements Serializable{
+@Table(name = "status")
+public class Status implements Serializable{
+    
+  
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-     @Column(name ="name", nullable = false,length = 45)
-    private String name;
-     public  City(){
-     
-     }
+
+    @Column(name = "value", length = 20, nullable = false)
+    private String Value;
+        public Status(){}
 
     /**
      * @return the id
@@ -44,16 +46,17 @@ public class City implements Serializable{
     }
 
     /**
-     * @return the name
+     * @return the Value
      */
-    public String getName() {
-        return name;
+    public String getValue() {
+        return Value;
     }
 
     /**
-     * @param name the name to set
+     * @param Value the Value to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setValue(String Value) {
+        this.Value = Value;
     }
+    
 }

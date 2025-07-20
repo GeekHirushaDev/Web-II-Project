@@ -9,15 +9,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-/**
- *
- * @author tharaka@javainstitute.edu.lk
- */
-
 public class Mail {
 
-    private static final String APP_EMAIL = "geekhirusha@gmail.com";
-    private static final String APP_PASSWORD = "mailapppassword";
+    private static final String APP_EMAIL = "";
+    private static final String APP_PASSWORD = "";
 
     public static void sendMail(String email, String subject, String htmlContent) {
 
@@ -29,7 +24,6 @@ public class Mail {
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
-            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(Mail.APP_EMAIL, Mail.APP_PASSWORD);
             }
@@ -40,7 +34,7 @@ public class Mail {
             message.setFrom(new InternetAddress(Mail.APP_EMAIL));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject(subject);
-            message.setContent(htmlContent,"text/html");
+            message.setContent(htmlContent, "text/html");
 
             Transport.send(message);
 

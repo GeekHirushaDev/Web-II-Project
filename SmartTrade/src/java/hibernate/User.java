@@ -12,31 +12,32 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     @Column(name = "first_name", length = 45, nullable = false)
     private String first_name;
-    
+
     @Column(name = "last_name", length = 45, nullable = false)
     private String last_name;
-    
+
     @Column(name = "email", length = 45, nullable = false)
     private String email;
-    
+
     @Column(name = "password", length = 20, nullable = false)
     private String password;
-    
+
     @Column(name = "verification", length = 10, nullable = false)
     private String verification;
-    
+
     @Column(name = "created_at", nullable = false)
     private Date created_at;
 
     public User() {
+
     }
 
     public int getId() {
@@ -94,6 +95,5 @@ public class User implements Serializable {
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
-    
-    
+
 }

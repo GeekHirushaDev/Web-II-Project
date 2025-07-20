@@ -17,17 +17,17 @@ import javax.persistence.Table;
  * @author Workplace
  */
 @Entity
-@Table(name="city")
-public class City implements Serializable{
+@Table(name="brand")
+public class Brand implements Serializable{
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-     @Column(name ="name", nullable = false,length = 45)
+    
+    @Column(name="name", length = 20, nullable = false)
     private String name;
-     public  City(){
-     
-     }
+    
+        public Brand(){}
 
     /**
      * @return the id

@@ -5,6 +5,7 @@
 package hibernate;
 
 import java.io.Serializable;
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,10 +15,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Workplace
+ */
 @Entity
 @Table(name = "address")
-public class Address implements Serializable{
-    
+public class Address implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,68 +33,99 @@ public class Address implements Serializable{
     
     @Column(name = "line_2", nullable = false)
     private String lineTwo;
-    
+
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
     
-    @Column(name = "postal_code",length = 5, nullable = false)
-    private String postal_code;
+    @Column(name = "postal_code", length = 5, nullable = false)
+    private String postalCode;
     
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    public Address() {
-    } 
-
+    public Address(){}
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @return the lineOne
+     */
     public String getLineOne() {
         return lineOne;
     }
 
+    /**
+     * @param lineOne the lineOne to set
+     */
     public void setLineOne(String lineOne) {
         this.lineOne = lineOne;
     }
 
+    /**
+     * @return the lineTwo
+     */
     public String getLineTwo() {
         return lineTwo;
     }
 
+    /**
+     * @param lineTwo the lineTwo to set
+     */
     public void setLineTwo(String lineTwo) {
         this.lineTwo = lineTwo;
     }
 
+    /**
+     * @return the city
+     */
     public City getCity() {
         return city;
     }
 
+    /**
+     * @param city the city to set
+     */
     public void setCity(City city) {
         this.city = city;
     }
 
-    public String getPostal_code() {
-        return postal_code;
+    /**
+     * @return the postalCode
+     */
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostal_code(String postal_code) {
-        this.postal_code = postal_code;
+    /**
+     * @param postalCode the postalCode to set
+     */
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
+    /**
+     * @return the user
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * @param user the user to set
+     */
     public void setUser(User user) {
         this.user = user;
     }
-    
-    
 }

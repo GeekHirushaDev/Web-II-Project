@@ -16,8 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author Workplace
+ */
 @WebFilter(urlPatterns = {"/my-account.html"})
-public class SignInCheckFilter implements Filter {
+public class SignInCheckFilter implements Filter{
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,22 +29,18 @@ public class SignInCheckFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpServletResponse response = (HttpServletResponse) res;
+ 
+        HttpServletRequest request = (HttpServletRequest)req; //casting -> downcasting  parent type eka child type eken thiygnn eka
+        HttpServletResponse response = (HttpServletResponse)res;//casting -> downcasting  parent type eka child type eken thiygnn eka
         
         HttpSession ses = request.getSession(false);
-        
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
-        response.setHeader("Pragma", "no-cache");                                   // HTTP 1.0
-        response.setHeader("Expires", "0"); 
-        
-        if (ses != null && ses.getAttribute("user") != null) {
+        if (ses != null && ses.getAttribute("user")!= null) {
             chain.doFilter(req, res);
+            
         } else {
             response.sendRedirect("sign-in.html");
         }
-                
+    
     }
 
     @Override
