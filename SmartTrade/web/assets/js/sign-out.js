@@ -1,24 +1,14 @@
-async function SignOut(){
-//    document.getElementById("spinner").style.display="block";
+async function signOut() {
     const response = await fetch("SignOut");
-//    try {
-         if (response.ok) {
-        const json = await response.json();
-        if (json.status) {
-            window.location="sign-in.html";
+        if (response.ok) {
+            const json = await response.json();
+            if (json.status) {
+                window.location = "sign-in.html";
+            } else {
+                window.location.reload();
+            }
         } else {
-            window.location.reload();
+            console.log("Logout Failed!");
         }
-    } else {
-        console.log("Logout Failed");
-    }
-    
-//    } catch (error) {
-//        
-//    }finally {
-//    document.getElementById("spinner").style.display="none";
-//    
-//    }
-
-    
 }
+

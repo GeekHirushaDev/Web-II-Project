@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller;
 
 import com.google.gson.Gson;
@@ -9,7 +5,6 @@ import com.google.gson.JsonObject;
 import hibernate.HibernateUtil;
 import hibernate.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +20,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author Workplace
+ * @author Dilhara
  */
 @WebServlet(name = "SignIn", urlPatterns = {"/SignIn"})
 public class SignIn extends HttpServlet {
@@ -34,83 +29,83 @@ public class SignIn extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
         JsonObject user = gson.fromJson(request.getReader(), JsonObject.class);
-
         String email = user.get("email").getAsString();
         String password = user.get("password").getAsString();
-
-        System.out.println(email);
-        System.out.println(password);
 
         JsonObject responseObject = new JsonObject();
         responseObject.addProperty("status", false);
 
         if (email.isEmpty()) {
-            responseObject.addProperty("message", "Email can not be empty");
+            responseObject.addProperty("message", "Email can not be empty!");
         } else if (!Util.isEmailValid(email)) {
             responseObject.addProperty("message", "Please enter a valid email!");
         } else if (password.isEmpty()) {
-            responseObject.addProperty("message", "Password can not be empty");
+            responseObject.addProperty("message", "Password can not be empty!");
+        } else if (!Util.isPasswordValid(password)) {
+            responseObject.addProperty("message", "The password must contains at least uppercase, lowecase,"
+                    + " number, special character and to be minimum eight characters long!");
         } else {
-
-            //hibernate save
-         SessionFactory sf = HibernateUtil.getSessionFactory();
-            Session s = sf.openSession();
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session s = sessionFactory.openSession();
 
             Criteria c = s.createCriteria(User.class);
 
-            Criterion crt1 = Restrictions.eq("email", email);
-            Criterion crt2 = Restrictions.eq("password", password);
-
-            c.add(crt1);
-            c.add(crt2);
+            Criterion ctr1 = Restrictions.eq("email", email);
+            Criterion ctr2 = Restrictions.eq("password", password);
+            c.add(ctr1);
+            c.add(ctr2);
 
             if (c.list().isEmpty()) {
                 responseObject.addProperty("message", "Invalid credentials!");
             } else {
-
                 User u = (User) c.list().get(0);
+                HttpSession ses = request.getSession();
                 responseObject.addProperty("status", true);
 
-                HttpSession ses = request.getSession();
-
-                if (!u.getVerification().equals("Verified")) { // not verified
-
+                if (!u.getVerification().equals("Verified")) { //Not Verified
+                    //session-management
                     ses.setAttribute("email", email);
+                    //session-management-end
+
                     responseObject.addProperty("message", "1");
-
-                } else {
-
+                } else { // Veriified
                     ses.setAttribute("user", u);
                     responseObject.addProperty("message", "2");
-
                 }
-
             }
-
             s.close();
         }
-        String responseText = gson.toJson(responseObject);
+        String toJson = gson.toJson(responseObject);
         response.setContentType("application/json");
-        response.getWriter().write(responseText);
+        response.getWriter().write(toJson);
     }
 
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        JsonObject responseObject = new JsonObject();
-//       
-//
-//        if (request.getSession().getAttribute("email") != null || request.getSession().getAttribute("user")!= null) {
-//          
-//
-//        } else {
-//            responseObject.addProperty("message", "2");
-//
-//        }
-//        Gson gson = new Gson();
-//          String toJson = gson.toJson(responseObject);
-//        response.setContentType("application/json");
-//        response.getWriter().write(toJson);
-//
-//    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        JsonObject responseObject = new JsonObject();
+
+        if (request.getSession().getAttribute("user") != null) {
+//            String email = request.getSession().getAttribute("email").toString();
+//            SessionFactory sf = HibernateUtil.getSessionFactory();
+//            Session s = sf.openSession();
+//            Criteria c = s.createCriteria(User.class);
+//            c.add(Restrictions.eq("email", email));
+//            
+//            if(!c.list().isEmpty()){
+//             
+//            }
+//            responseObject.addProperty("status", true);
+            responseObject.addProperty("message", "1");
+        } else {
+//            responseObject.addProperty("status", false);
+            responseObject.addProperty("message", "2");
+        }
+
+        Gson gson = new Gson();
+        String toJson = gson.toJson(responseObject);
+        response.setContentType("application/json");
+        response.getWriter().write(toJson);
+    }
 
 }

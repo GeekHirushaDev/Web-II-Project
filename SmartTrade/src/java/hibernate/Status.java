@@ -14,49 +14,38 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Workplace
+ * @author Dilhara
  */
-
 @Entity
 @Table(name = "status")
-public class Status implements Serializable{
-    
-  
+public class Status implements Serializable {
+
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-
     @Column(name = "value", length = 20, nullable = false)
-    private String Value;
-        public Status(){}
+    private String value;
 
-    /**
-     * @return the id
-     */
+    public Status() {
+    }
+
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the Value
-     */
     public String getValue() {
-        return Value;
+        return value;
     }
 
-    /**
-     * @param Value the Value to set
-     */
-    public void setValue(String Value) {
-        this.Value = Value;
+    public void setValue(String value) {
+        this.value = value;
     }
-    
+
+   
+
 }

@@ -14,46 +14,37 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Workplace
+ * @author Dilhara
  */
 @Entity
-@Table(name="brand")
-public class Brand implements Serializable{
-    @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
-    @Column(name="name", length = 20, nullable = false)
-    private String name;
-    
-        public Brand(){}
+@Table(name = "brand")
+public class Brand implements Serializable {
 
-    /**
-     * @return the id
-     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "name", length = 45, nullable = false)
+    private String name;
+
+    public Brand() {
+    }
+
+    
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
+
 }

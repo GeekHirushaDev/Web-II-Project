@@ -31,7 +31,7 @@
     </head>
 
 
-    <body class="sticky-header" onload="loadData();loadProductData();">
+    <body class="sticky-header" onload="loadData(); loadProductData();">
         <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
@@ -153,7 +153,7 @@
                                         <span class="title">QUICKLINKS</span>
                                         <ul>
                                             <li>
-                                                <a href="#">My Account</a>
+                                                <a href="my-account.html">My Account</a>
                                             </li>
                                             <li>
                                                 <a href="#">Support</a>
@@ -163,9 +163,9 @@
                                             </li>
                                         </ul>
                                         <div class="login-btn">
-                                            <a href="#" class="axil-btn btn-bg-primary">Login</a>
+                                            <a href="sign-in.html" class="axil-btn btn-bg-primary">Login</a>
                                         </div>
-                                        <div class="reg-footer text-center">No account yet? <a href="#" class="btn-link">REGISTER HERE.</a></div>
+                                        <div class="reg-footer text-center">No account yet? <a href="sign-up.html" class="btn-link">REGISTER HERE.</a></div>
                                     </div>
                                 </li>
                                 <li class="axil-mobile-toggle">
@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h5 class="title mb-0" id="username">Hello Name</h5>
-                                    <span class="joining-date" id="since" >Smart Trade Member Since Sep 2024</span>
+                                    <span class="joining-date" id="since">Smart Trade Member Since Sep 2024</span>
                                 </div>
                             </div>
                         </div>
@@ -238,10 +238,8 @@
                                         <div class="axil-dashboard-overview">
 
                                             <div class="welcome-text">Create New Product</div>
-
-                                            <p class="text-danger" id="message"></p>
-
-                                            <form class="account-details-form">
+                                            
+                                            <!--<form class="account-details-form">-->
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
@@ -262,13 +260,13 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label>Title</label>
-                                                            <input id="title" type="text" class="form-control" value="">
+                                                            <input type="text" class="form-control" value="" id="title">
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label>Description</label>
-                                                            <textarea id="description" cols="1" rows="2"></textarea>
+                                                            <textarea cols="1" rows="2" id="description"></textarea>
                                                         </div>
                                                     </div>
 
@@ -301,38 +299,37 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Price</label>
-                                                            <input id="price" type="text" class="form-control" pattern="^\d+(\.\d{2})?$" placeholder="0.00">
+                                                            <input type="text" class="form-control" pattern="^\d+(\.\d{2})?$" placeholder="0.00" id="price">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Quantity</label>
-                                                            <input id="qty" type="number" class="form-control" min="1" value="1">
+                                                            <input type="number" class="form-control" min="1" value="1" id="qty">
                                                         </div>
                                                     </div> 
 
                                                     <div class="col-lg-4">
                                                         <label>Image 1</label>
-                                                        <input id="img1" class="form-control b2" type="file" accept="image/*">
+                                                        <input class="form-control b2" type="file" accept="image/*" id="img1">
                                                     </div>
 
                                                     <div class="col-lg-4">
                                                         <label>Image 2</label>
-                                                        <input id="img2" class="form-control b2" type="file" accept="image/*">
+                                                        <input class="form-control b2" type="file" accept="image/*" id="img2">
                                                     </div>
 
                                                     <div class="col-lg-4">
                                                         <label>Image 3</label>
-                                                        <input id="img3" class="form-control b2" type="file" accept="image/*">
+                                                        <input class="form-control b2" type="file" accept="image/*" id="img3">
                                                     </div>
-
                                                     <div class="col-12">
                                                         <div class="form-group mb--0 mt--30 d-grid">
-                                                            <input onclick="saveProduct();" type="button" class="axil-btn" value="Add Product To Listing">
+                                                            <input type="button" class="axil-btn" value="Add Product To Listing" onclick="saveProduct();">
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            <!--</form>-->
 
                                         </div>
                                     </div>
@@ -406,7 +403,7 @@
                                                             <li id="addName">Name: Name</li>
                                                             <li id="addEmail">Email:  example@email.com</li>
                                                             <li id="contact">Phone:  Phone Number</li>
-                                                            <li class="mt--30" id="address"></li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -421,7 +418,7 @@
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
                                                             <label>First Name</label>
-                                                            <input type="text" class="form-control" value="" id="firstName"/>
+                                                            <input type="text" class="form-control" value="" id="firstName">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
@@ -432,13 +429,13 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label>Address Line 1</label>
+                                                            <label>Address Line One</label>
                                                             <input type="text" class="form-control" value="" id="lineOne">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label>Address Line 2</label>
+                                                            <label>Address Line Two</label>
                                                             <input type="text" class="form-control" value="" id="lineTwo">
                                                         </div>
                                                     </div>
@@ -460,7 +457,7 @@
                                                         <h5 class="title">Password Change</h5>
                                                         <div class="form-group">
                                                             <label>Current Password</label>
-                                                            <input type="password" class="form-control" value="" id="currentPassword">
+                                                            <input readonly type="password" class="form-control" value="" id="currentPassword">
                                                         </div>
                                                         <div class="form-group">
                                                             <label>New Password</label>
@@ -471,15 +468,15 @@
                                                             <input type="password" class="form-control" id="confirmPassword">
                                                         </div>
                                                         <div class="form-group mb--0 d-grid">
-                                                            <button type="submit" class="axil-btn btn btn-primary" onclick="saveChanges();">Save Changes</button>
+                                                            <input type="submit" class="axil-btn" value="Save Changes" onclick="saveChanges()">
                                                         </div>
                                                     </div>
-                                                    <p class="text-danger" id="message"></p>
                                                 </div>
                                                 <!--</form>-->
                                             </div>
                                         </div>
                                     </div>
+                                    <p class="text-danger" id="message"></p>
                                 </div>
                             </div>
                         </div>
@@ -757,10 +754,10 @@
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
-
         <script src="assets/js/sign-out.js"></script>
         <script src="assets/js/my-account.js"></script>
         <script src="assets/js/product-listing.js"></script>
+        <script src="assets/js/notification.js"></script>
 
     </body>
 

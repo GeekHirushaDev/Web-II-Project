@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package hibernate;
 
 import java.io.Serializable;
@@ -9,35 +13,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Dilhara
+ */
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
-
+@Table(name="user")
+public class User implements Serializable{
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
-
-    @Column(name = "first_name", length = 45, nullable = false)
+    @Column(name="first_name",length = 40, nullable = false)
     private String first_name;
-
-    @Column(name = "last_name", length = 45, nullable = false)
+    @Column(name="last_name",length = 40, nullable = false)
     private String last_name;
-
-    @Column(name = "email", length = 45, nullable = false)
+    @Column(name="email",length = 60, nullable = false)
     private String email;
-
-    @Column(name = "password", length = 20, nullable = false)
+    @Column(name="password",length = 20, nullable = false)
     private String password;
-
-    @Column(name = "verification", length = 10, nullable = false)
+    @Column(name="verification",length = 10, nullable = false)
     private String verification;
-
-    @Column(name = "created_at", nullable = false)
+    @Column(name="created_at", nullable = false)
     private Date created_at;
 
     public User() {
-
     }
 
     public int getId() {
@@ -95,5 +95,6 @@ public class User implements Serializable {
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
-
+    
+    
 }

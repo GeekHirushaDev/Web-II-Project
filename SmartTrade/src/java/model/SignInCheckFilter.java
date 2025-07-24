@@ -18,10 +18,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Workplace
+ * @author Dilhara
  */
-@WebFilter(urlPatterns = {"/my-account.html"})
-public class SignInCheckFilter implements Filter{
+@WebFilter(urlPatterns = {"/my-account.html"}) //http://localhost:8080/Smarttrade/my-account.html?id=2
+public class SignInCheckFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -29,22 +29,21 @@ public class SignInCheckFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
- 
-        HttpServletRequest request = (HttpServletRequest)req; //casting -> downcasting  parent type eka child type eken thiygnn eka
-        HttpServletResponse response = (HttpServletResponse)res;//casting -> downcasting  parent type eka child type eken thiygnn eka
-        
+
+        HttpServletRequest request = (HttpServletRequest) req; // casting -> downcasting
+        HttpServletResponse response = (HttpServletResponse) res; // casting
+
         HttpSession ses = request.getSession(false);
-        if (ses != null && ses.getAttribute("user")!= null) {
+        if (ses != null && ses.getAttribute("user") != null) {
             chain.doFilter(req, res);
-            
         } else {
             response.sendRedirect("sign-in.html");
         }
-    
+
     }
 
     @Override
     public void destroy() {
     }
-    
+
 }

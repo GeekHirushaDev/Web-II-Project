@@ -22,27 +22,23 @@ import org.hibernate.SessionFactory;
 
 /**
  *
- * @author Workplace
+ * @author Dilhara
  */
 @WebServlet(name = "CityData", urlPatterns = {"/CityData"})
 public class CityData extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        JsonObject responseObject = new JsonObject();
-
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session s = sf.openSession();
         Criteria c = s.createCriteria(City.class);
         List<City> cityList = c.list();
-
+        
         Gson gson = new Gson();
         String toJson = gson.toJson(cityList);
         response.setContentType("application/json");
         response.getWriter().write(toJson);
         s.close();
-
-
     }
 
 }

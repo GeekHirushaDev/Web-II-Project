@@ -16,62 +16,47 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Workplace
+ * @author Dilhara
  */
 @Entity
 @Table(name = "model")
 public class Model implements Serializable {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "name", length = 20, nullable = false)
+    @Column(name = "name", length = 45, nullable = false)
     private String name;
+
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
-        public Model(){}
 
-    /**
-     * @return the id
-     */
+    public Model() {
+    }
+
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the brand
-     */
     public Brand getBrand() {
         return brand;
     }
 
-    /**
-     * @param brand the brand to set
-     */
     public void setBrand(Brand brand) {
         this.brand = brand;
     }
