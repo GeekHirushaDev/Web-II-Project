@@ -192,6 +192,24 @@ function updateProductView(json) {
     }
 }
 
-function addToCart(productId, qty) {
-    console.log(productId + " " + qty);
+async function addToCart(productId, qty) {
+    const popup = new Notification();// link notification js in single-product.html
+    const response = await fetch("AddToCart?prId=" + productId + "&qty=" + qty);
+    if (response.ok) {
+        const json = await response.json(); // await response.text();
+        if (json.status) {
+            popup.success({
+                message: json.message
+            });
+        } else {
+            popup.error({
+                message: "Something went wrong. Try again"
+            });
+
+        }
+    } else {
+        popup.error({
+            message: "Something went wrong. Try again"
+        });
+    }
 }

@@ -29,20 +29,29 @@ public class Address implements Serializable {
 
     @Column(name = "line_1", nullable = false)
     private String lineOne;
-    
+
     @Column(name = "line_2", nullable = false)
     private String lineTwo;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
-    
+
     @Column(name = "postal_code", length = 5, nullable = false)
     private String postalCode;
-    
+
+    @Column(name = "mobile", nullable = false, length = 10)
+    private String mobile;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Column(name = "first_name", length = 45)
+    String firstName;
+    
+    @Column(name = "last_name", length = 45)
+    String lastName;
 
     public Address() {
     }
@@ -93,6 +102,30 @@ public class Address implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
 }
